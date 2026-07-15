@@ -1,68 +1,12 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root { font-family: Inter, system-ui, sans-serif; color: #0f1419; background: #fff; font-synthesis: none; } * { box-sizing: border-box; } body { margin: 0; min-width: 320px; } button, input, textarea { font: inherit; } button { cursor: pointer; } a { color: inherit; text-decoration: none; }
+.auth-page { min-height: 100vh; display: grid; grid-template-columns: 1.15fr .85fr; background: #f7f9f9; }
+.brand-panel { background: #0f1419; color: white; padding: 9vw; display: flex; flex-direction: column; justify-content: center; } .logo, .side-logo { font-size: 3.3rem; font-weight: 700; } .brand-panel h1 { max-width: 650px; font-size: clamp(2.6rem, 5vw, 5.5rem); letter-spacing: -.06em; line-height: .98; margin: 2rem 0; } .brand-panel p { max-width: 500px; color: #aab8c2; font-size: 1.1rem; line-height: 1.7; }
+.auth-card { align-self: center; width: min(430px, calc(100% - 48px)); margin: auto; padding: 2.5rem; background: white; border: 1px solid #e6ecf0; border-radius: 24px; box-shadow: 0 18px 60px #0f141912; } .eyebrow { color: #1d9bf0; font-size: .75rem; font-weight: 800; letter-spacing: .14em; } .auth-card h2 { font-size: 2rem; margin: .7rem 0 2rem; } .auth-card form, .auth-card label { display: flex; flex-direction: column; } .auth-card form { gap: 1.2rem; } .auth-card label { gap: .45rem; font-size: .85rem; font-weight: 700; } .auth-card input { padding: .95rem 1rem; border: 1px solid #cfd9de; border-radius: 12px; outline: 0; background: white; color: #0f1419; } .auth-card input:focus { border-color: #1d9bf0; box-shadow: 0 0 0 3px #1d9bf020; } .auth-card button, .compose-footer button, .post-cta { border: 0; border-radius: 999px; background: #0f1419; color: white; padding: .9rem 1.4rem; font-weight: 800; } button:disabled { opacity: .5; cursor: default; } .switch { text-align: center; color: #536471; font-size: .9rem; margin: 1.6rem 0 0; } .switch a { color: #1d9bf0; font-weight: 700; } .error { color: #e0245e !important; }
+.app-shell { min-height: 100vh; display: grid; grid-template-columns: minmax(220px, 280px) minmax(480px, 620px) minmax(270px, 360px); max-width: 1260px; margin: auto; } .sidebar { height: 100vh; position: sticky; top: 0; padding: 18px 24px; display: flex; flex-direction: column; border-right: 1px solid #eff3f4; } .side-logo { font-size: 2rem; margin: 0 12px 24px; } .sidebar nav { display: grid; gap: 6px; } .sidebar nav a { width: fit-content; padding: 12px 16px; border-radius: 999px; font-size: 1.2rem; } .sidebar nav a:hover, .sidebar nav .active { background: #eff3f4; font-weight: 700; } .post-cta { background: #1d9bf0; margin-top: 24px; font-size: 1rem; } .profile { margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 10px; } .profile div:nth-child(2) { min-width: 0; display: grid; } .profile small { color: #536471; } .icon-button { margin-left: auto; border: 0; background: transparent; font-size: 1.2rem; }
+.avatar { flex: 0 0 44px; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; color: white; background: linear-gradient(135deg, #1d9bf0, #7856ff); font-weight: 800; }
+.timeline { border-right: 1px solid #eff3f4; min-height: 100vh; } .timeline > header { height: 58px; position: sticky; top: 0; z-index: 2; padding: 0 18px; display: flex; align-items: center; justify-content: space-between; background: #ffffffdc; backdrop-filter: blur(12px); border-bottom: 1px solid #eff3f4; } .timeline header h1 { font-size: 1.25rem; } .composer { padding: 16px; display: flex; gap: 12px; border-bottom: 1px solid #eff3f4; } .compose-body { flex: 1; } .composer textarea { width: 100%; min-height: 80px; padding: 10px 0; resize: none; border: 0; outline: 0; color: #0f1419; font-size: 1.2rem; } .compose-footer { display: flex; justify-content: flex-end; align-items: center; gap: 14px; color: #536471; font-size: .8rem; } .compose-footer button { padding: .65rem 1.2rem; background: #1d9bf0; }
+.post { padding: 14px 16px 8px; display: flex; gap: 12px; border-bottom: 1px solid #eff3f4; transition: background .15s; } .post:hover { background: #f7f9f9; } .post-body { min-width: 0; flex: 1; } .post-meta { display: flex; gap: 5px; align-items: center; font-size: .92rem; } .post-meta span { color: #536471; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .post-meta .delete { margin-left: auto; border: 0; background: transparent; color: #536471; font-size: 1.2rem; } .post-body p { margin: 5px 0 12px; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; } .post-actions { display: flex; justify-content: space-between; max-width: 420px; } .post-actions button { border: 0; background: transparent; color: #536471; padding: 5px; } .post-actions button:hover { color: #1d9bf0; } .post-actions .liked { color: #f91880; }
+.rightbar { padding: 10px 24px; } .search { position: sticky; top: 8px; padding: 12px 18px; border-radius: 999px; color: #536471; background: #eff3f4; } .rightbar section { margin-top: 18px; border-radius: 18px; background: #f7f9f9; overflow: hidden; } .rightbar h2 { padding: 14px 16px 4px; margin: 0; font-size: 1.2rem; } .rightbar article { display: grid; padding: 14px 16px; } .rightbar article:hover { background: #eff1f1; } .rightbar article small, .rightbar article span, .rightbar footer { color: #536471; font-size: .78rem; } .rightbar footer { padding: 18px 4px; line-height: 1.6; } .notice, .empty { padding: 40px; text-align: center; color: #536471; } .empty { padding: 70px 25px; } .empty span { font-size: 2rem; color: #1d9bf0; } .empty h2 { color: #0f1419; margin-bottom: 6px; } .empty p { margin: 0; }
+@media (max-width: 1000px) { .app-shell { grid-template-columns: 90px minmax(480px, 620px) minmax(270px, 340px); justify-content: center; } .sidebar nav span, .profile div:nth-child(2), .rightbar { display: none; } .app-shell { grid-template-columns: 90px minmax(480px, 620px); } .sidebar { align-items: center; padding-inline: 10px; } .sidebar nav a { font-size: 1.5rem; } .post-cta { width: 52px; height: 52px; font-size: 0; padding: 0; } .post-cta::after { content: '+'; font-size: 1.7rem; } }
+@media (max-width: 650px) { .auth-page { grid-template-columns: 1fr; background: white; } .brand-panel { min-height: 250px; padding: 42px 28px; } .brand-panel h1 { font-size: 2.7rem; margin: 1rem 0; } .brand-panel p { margin: 0; } .auth-card { box-shadow: none; border: 0; padding: 32px 24px; } .app-shell { display: block; } .sidebar { height: 58px; position: fixed; inset: auto 0 0; z-index: 5; flex-direction: row; justify-content: space-around; border: 1px solid #eff3f4; background: white; padding: 4px; } .side-logo, .post-cta, .profile, .sidebar nav a:nth-child(n+3) { display: none; } .sidebar nav { display: flex; width: 100%; justify-content: space-around; } .sidebar nav a { padding: 7px 25px; } .timeline { padding-bottom: 58px; border: 0; } .post-meta { flex-wrap: wrap; } }

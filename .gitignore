@@ -16,6 +16,9 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+backend/data/store.json
+.env
+.env.*
 dist
 dist-ssr
 *.local

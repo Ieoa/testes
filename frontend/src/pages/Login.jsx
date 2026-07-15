@@ -1,44 +1,16 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { api } from '../services/api';
 
 export default function Login() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
-
-    const handleLogin = async (e) => {
-        e.preventDefault();
-
-        const res = await fetch('http://localhost:3000/api/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password }),
-        });
-
-        const data = await res.json();
-
-        if (data.success) {
-            navigate('/feed'); // redireciona para a página Feed
-        } else {
-            alert('Login inválido');
-        }
-    };
-
-    return (
-        <form onSubmit={handleLogin}>
-            <input
-                type="text"
-                placeholder="Usuário"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit">Entrar</button>
-        </form>
-    );
+  const [form, setForm] = useState({ username: '', password: '' });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  async function submit(event) {
+    event.preventDefault(); setError(''); setLoading(true);
+    try { const data = await api('/users/login', { method: 'POST', body: JSON.stringify(form) }); localStorage.setItem('token', data.token); localStorage.setItem('user', JSON.stringify(data.user)); navigate('/feed'); }
+    catch (err) { setError(err.message); } finally { setLoading(false); }
+  }
+  return <main className="auth-page"><section className="brand-panel"><div className="logo">𝕏</div><h1>O que está acontecendo agora</h1><p>Entre na conversa. Compartilhe ideias em até 280 caracteres.</p></section><section className="auth-card"><span className="eyebrow">BEM-VINDO DE VOLTA</span><h2>Entre na sua conta</h2><form onSubmit={submit}><label>Usuário<input required autoFocus value={form.username} onChange={(e) => setForm({ ...form, username: e.target.value })} placeholder="seu_usuario" /></label><label>Senha<input required type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="••••••••" /></label>{error && <p className="error">{error}</p>}<button disabled={loading}>{loading ? 'Entrando…' : 'Entrar'}</button></form><p className="switch">Ainda não tem conta? <Link to="/register">Criar conta</Link></p></section></main>;
 }
